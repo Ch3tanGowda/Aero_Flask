@@ -1,0 +1,45 @@
+@app.route('/test.html', methods = ['POST', 'GET'])
+def test():
+    cfv= ''
+    if request.method == 'POST' and 'iv1' in request.form and 'iv2' in request.form and 'iv3' in request.form and 'iv4' in request.form:
+        iv1 = float (request.form.get('iv1'))
+        iv2 = float (request.form.get('iv2'))
+        iv3 = float (request.form.get('iv3'))
+        iv4 = float (request.form.get('iv4'))
+        cfv = calc.cfv_calc(iv1,iv2,iv3,iv4) 
+    return render_template ('test.html', cfv = cfv)  
+
+
+{% extends "layout.html" %}
+{% block content %}
+<div class="aero-col m6" style = "max-width:800px"></div>
+    <form action="/test.html" method="POST">
+        <div class="aero-row-padding" style="margin:0 -16px 18px -16px">
+            <input class="aero-input aero-border" type="text" placeholder="Fill1" name="iv1" required><br>(m/s)</div>
+        
+        <div class="aero-row-padding" style="margin:0 -16px 18px -16px">
+            <input class="aero-input aero-border" type="text" placeholder="Fill2" name="iv2" required><br>(kg*m/s^2)</div>
+        
+        <div class="aero-row-padding" style="margin:0 -16px 18px -16px">
+            <input class="aero-input aero-border" type="text" placeholder="Fill3" name="iv3" required><br> (m^2)</div>
+        
+        <div class="aero-row-padding" style="margin:0 -16px 18px -16px">
+            <input class="aero-input aero-border" type="text" placeholder="Fill4" name="iv4"required><br> (kg/m*s)</div>
+        
+        <div class="aero-row-padding" style="margin:0 -16px 8px -16px">
+            <button class="aero-button aero-black aero-section aero-right" type="submit">Calculate</button></div>
+        
+    </form>
+
+</div>
+{% if cfv %}
+<p>Your Coefficient of Drag is {{cfv}} </p>
+{% endif %}
+
+<div class="aero-row-padding aero-col m6" style="margin:10 -16px 8px -16px"><a href="/test.html">
+    <button class="aero-button aero-black aero-section aero-right">Calculate Again</button></a></div>
+<br>
+    <div class="aero-row-padding aero-col m6" style="margin:10 -16px 8px -16px"><a href="/">
+        <button class="aero-button aero-black aero-section aero-right">Home</button></a></div>
+
+{% endblock content %}

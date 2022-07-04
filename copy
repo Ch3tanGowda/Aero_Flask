@@ -1,0 +1,34 @@
+@app.route('/divergencetest.html', methods = ['POST', 'GET'])
+def divergencetest():
+    divergence= ''
+    if request.method == 'POST' and 'velocityfield' in request.form :
+        velocityfield = (request.form.get('velocityfield'))
+        divergence = calc.divergence(velocityfield,iv2,iv3,iv4) 
+    return render_template ('divergencetest.html', divergence = divergence)  
+
+
+{% extends "layout.html" %}
+{% block content %}
+<div class="aero-col m6" style = "max-width:800px"></div>
+    <form action="/divergencetest.html" method="POST">
+        <div class="aero-row-padding" style="margin:0 -16px 18px -16px">
+            <input class="aero-input aero-border" type="text" placeholder="Velocity Function" name="velocityfield" required><br>The function that defines the velocity at the points(m/s)</div>
+        
+        
+        <div class="aero-row-padding" style="margin:0 -16px 8px -16px">
+            <button class="aero-button aero-black aero-section aero-right" type="submit">Calculate</button></div>
+        
+    </form>
+
+</div>
+{% if divergence %}
+<p>THe Divergence of this Field is {{divergence}} </p>
+{% endif %}
+
+<div class="aero-row-padding aero-col m6" style="margin:10 -16px 8px -16px"><a href="/divergencetest.html">
+    <button class="aero-button aero-black aero-section aero-right">Calculate Again</button></a></div>
+<br>
+    <div class="aero-row-padding aero-col m6" style="margin:10 -16px 8px -16px"><a href="/">
+        <button class="aero-button aero-black aero-section aero-right">Home</button></a></div>
+
+{% endblock content %}
