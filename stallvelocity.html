@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="aero-col m6" style = "max-width:800px"></div>
+    <form action="/stallvelocity.html" method="POST">
+        <div class="aero-row-padding" style="margin:0 -16px 18px -16px">
+            <input class="aero-input aero-border" type="text" placeholder="Maximum Coefficient of Lift" name="coeff_lift_max" required><br>Maximum Coefficient of Lift</div>
+        
+        <div class="aero-row-padding" style="margin:0 -16px 18px -16px">
+            <input class="aero-input aero-border" type="text" placeholder="Weight" name="weight" required><br>Weight of the Structure(kg*m/s^2)</div>
+        
+        <div class="aero-row-padding" style="margin:0 -16px 18px -16px">
+            <input class="aero-input aero-border" type="text" placeholder="Area" name="area" required><br>Area (m^2)</div>
+        
+        <div class="aero-row-padding" style="margin:0 -16px 18px -16px">
+            <input class="aero-input aero-border" type="text" placeholder="Density" name="density_inf"required><br>Density of Freestram Air (kg/m*s)</div>
+        
+        <div class="aero-row-padding" style="margin:0 -16px 8px -16px">
+            <button class="aero-button aero-black aero-section aero-right" type="submit">Calculate</button></div>
+        
+    </form>
+
+</div>
+{% if stall_velocity %}
+<p>Your Stall_Velocity is {{stall_velocity}} </p>
+{% endif %}
+
+<div class="aero-row-padding aero-col m6" style="margin:10 -16px 8px -16px"><a href="/stallvelocity.html">
+    <button class="aero-button aero-black aero-section aero-right">Calculate Again</button></a></div>
+<br>
+
+
+{% endblock content %}

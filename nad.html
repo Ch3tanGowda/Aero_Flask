@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="aero-col m6" style = "max-width:800px"></div>
+    <form action="/nad.html" method="POST">
+        <div class="aero-row-padding" style="margin:0 -16px 18px -16px">
+            <input class="aero-input aero-border" type="text" placeholder="Pressure Upper" name="pressure_upper" required><br>Pressure distribution on upper surface</div>
+        
+        <div class="aero-row-padding" style="margin:0 -16px 18px -16px">
+            <input class="aero-input aero-border" type="text" placeholder="Pressure Lower" name="pressure_lower" required><br>Pressure distribution on lower surface</div>
+        
+        <div class="aero-row-padding" style="margin:0 -16px 18px -16px">
+            <input class="aero-input aero-border" type="text" placeholder="Shear Upper" name="tau_upper" required><br>Shear distribution on upper surface (m)</div>
+        
+        <div class="aero-row-padding" style="margin:0 -16px 18px -16px">
+            <input class="aero-input aero-border" type="text" placeholder="Shear Lower" name="tau_lower"required><br>Shear distribution on lower surface </div>
+            
+        <div class="aero-row-padding" style="margin:0 -16px 18px -16px">
+            <input class="aero-input aero-border" type="text" placeholder="Theta Upper" name="y_upper" required><br>Equation of y coordinate airfoil on upper surface </div>
+
+        <div class="aero-row-padding" style="margin:0 -16px 18px -16px">
+            <input class="aero-input aero-border" type="text" placeholder="Theta Lower" name="y_lower" required><br>Equation of y coordinate airfoil on lower surface </div>
+
+         <div class="aero-row-padding" style="margin:0 -16px 18px -16px">
+            <input class="aero-input aero-border" type="text" placeholder="Leading Edge" name="leading_edge" required><br>x Position of leading edge</div>
+
+        <div class="aero-row-padding" style="margin:0 -16px 18px -16px">
+            <input class="aero-input aero-border" type="text" placeholder="Trailing Edge" name="trailing_edge" required><br>x Position of trailing edge</div>
+    
+        <div class="aero-row-padding" style="margin:0 -16px 8px -16px">
+            <button class="aero-button aero-black aero-section aero-right" type="submit">Calculate</button></div>
+        
+    </form>
+</div>
+<p>The Normal Force is {{normal}} </p>
+<p>The Axial Force is {{axial}} </p>
+
+<div class="aero-row-padding aero-col" style="margin:10 -16px 8px -16px"><a href="/nad.html">
+    <button class="aero-button aero-black aero-section aero-right">Calculate Again</button></a></div>
+<br>
+
+{% endblock content %}

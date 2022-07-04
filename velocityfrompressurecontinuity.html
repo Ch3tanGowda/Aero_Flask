@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="aero-col m6" style = "max-width:800px"></div>
+    <form action="/velocityfrompressurecontinuity.html" method="POST">
+        <div class="aero-row-padding" style="margin:0 -16px 18px -16px">
+            <input class="aero-input aero-border" type="text" placeholder="Density" name="density" required><br>Density(kg/m^3)</div>
+        
+        <div class="aero-row-padding" style="margin:0 -16px 18px -16px">
+            <input class="aero-input aero-border" type="text" placeholder="Area1" name="area1" required><br>Area at point 1 (m^2)</div>
+        
+        <div class="aero-row-padding" style="margin:0 -16px 18px -16px">
+            <input class="aero-input aero-border" type="text" placeholder="Pressure1" name="pressure1" required><br>Pressure at point 1 (N/m^2)</div>
+        
+        <div class="aero-row-padding" style="margin:0 -16px 18px -16px">
+            <input class="aero-input aero-border" type="text" placeholder="Area2" name="area2"required><br>Area at point 2 (m^2)</div>
+
+        <div class="aero-row-padding" style="margin:0 -16px 18px -16px">
+            <input class="aero-input aero-border" type="text" placeholder="Pressure2" name="pressure2"required><br>Pressure at point 2 (N/m^2)</div>
+        
+        <div class="aero-row-padding" style="margin:0 -16px 8px -16px">
+            <button class="aero-button aero-black aero-section aero-right" type="submit">Calculate</button></div>
+        
+    </form>
+
+</div>
+{% if velocity2 %}
+<p>Velocity at point 2 is {{velocity2}} </p>
+{% endif %}
+
+<div class="aero-row-padding aero-col m6" style="margin:10 -16px 8px -16px"><a href="/velocityfrompressurecontinuity.html">
+    <button class="aero-button aero-black aero-section aero-right">Calculate Again</button></a></div>
+<br>
+    <div class="aero-row-padding aero-col m6" style="margin:10 -16px 8px -16px"><a href="/">
+        <button class="aero-button aero-black aero-section aero-right">Home</button></a></div>
+
+{% endblock content %}

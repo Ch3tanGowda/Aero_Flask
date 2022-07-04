@@ -1,0 +1,43 @@
+
+{% extends "layout.html" %}
+{% block content %}
+<div class="aero-col m6" style = "max-width:800px"></div>
+    <form action="/pressureeuler.html" method="POST">
+        <div class="aero-row-padding" style="margin:0 -16px 18px -16px">
+            <input class="aero-input aero-border" type="text" placeholder="Density" name="density" required><br>Density (kg/m^3)</div>
+        
+        <div class="aero-row-padding" style="margin:0 -16px 18px -16px">
+            <input class="aero-input aero-border" type="text" placeholder="Gravity" name="gravity" required><br>Acceleration due to Gravity (m/s^2)</div>
+        
+        <div class="aero-row-padding" style="margin:0 -16px 18px -16px">
+            <input class="aero-input aero-border" type="text" placeholder="Pressure 1" name="pressure1" required><br>Pressure at point 1 (N/m^2)</div>
+        
+        <div class="aero-row-padding" style="margin:0 -16px 18px -16px">
+            <input class="aero-input aero-border" type="text" placeholder="Velocity 1" name="velocity1"required><br>Velocity at point 1(m/s)</div>
+        
+        <div class="aero-row-padding" style="margin:0 -16px 18px -16px">
+            <input class="aero-input aero-border" type="text" placeholder="Velocity 2" name="velocity2" required><br>Velocity at point 2(m/s)</div>
+        
+        <div class="aero-row-padding" style="margin:0 -16px 18px -16px">
+            <input class="aero-input aero-border" type="text" placeholder="Height 1" name="height1" required><br>Height of point 1 (m)</div>
+        
+        <div class="aero-row-padding" style="margin:0 -16px 18px -16px">
+            <input class="aero-input aero-border" type="text" placeholder="Height 2" name="height2" required><br>Height of point 2 (m)<br><br>NOTE: Heights can be Relative to each other, if both are at nearly same elevation, enter zero for both</div> 
+        
+        
+        <div class="aero-row-padding" style="margin:0 -16px 8px -16px">
+            <button class="aero-button aero-black aero-section aero-right" type="submit">Calculate</button></div>
+    </form>
+
+</div>
+{% if pressure2 %}
+<p>Value of Pressure at given point is is {{pressure2}} </p>
+{% endif %}
+
+<div class="aero-row-padding aero-col m6" style="margin:10 -16px 8px -16px"><a href="/pressureeuler.html">
+    <button class="aero-button aero-black aero-section aero-right">Calculate Again</button></a></div>
+<br>
+    <div class="aero-row-padding aero-col m6" style="margin:10 -16px 8px -16px"><a href="/">
+        <button class="aero-button aero-black aero-section aero-right">Home</button></a></div>
+
+{% endblock content %}
