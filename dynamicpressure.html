@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="aero-col m6" style = "max-width:800px"></div>
+    <form action="/dynamicpressure.html" method="POST">
+        <div class="aero-row-padding" style="margin:0 -16px 18px -16px">
+            
+            <input class="aero-input aero-border" type="text" placeholder="Density" name="density" required><br>Density (kg/m^3)</div>
+        <div class="aero-row-padding" style="margin:0 -16px 18px -16px">
+            
+            <input class="aero-input aero-border" type="text" placeholder="Velocity" name="velocity" required><br>Velocity(m/s)</div>
+
+        <div class="aero-row-padding" style="margin:0 -16px 8px -16px">
+            <button class="aero-button aero-black aero-section" type="submit">Calculate</button></div></form>
+    {% if dynamicpressurevalue %}
+<div class="aero-row-padding" style="margin:0 -16px 8px -16px"><p>The Dynamic Pressure is {{dynamicpressurevalue}}</p></div>
+</div><a href="/dynamicpressure.html">
+    <button class="aero-button aero-black aero-section">Calculate Again</button></a></div>
+{% endif %}
+{% endblock content %}

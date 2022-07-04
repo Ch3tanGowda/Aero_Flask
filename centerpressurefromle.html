@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="aero-col m6" style = "max-width:800px"></div>
+    <form action="/centerpressurefromle.html" method="POST">
+        <div class="aero-row-padding" style="margin:0 -16px 18px -16px">
+            
+            <input class="aero-input aero-border" type="text" placeholder="Moment from Leading Edge" name="moment_le" required><br>Moment from Leading Edge (kg*m^2/s^2)</div>
+        <div class="aero-row-padding" style="margin:0 -16px 18px -16px">
+            
+            <input class="aero-input aero-border" type="text" placeholder="Normal Force" name="normalforce" required><br>Normal Force(kg*m/s^2)</div>
+
+        <div class="aero-row-padding" style="margin:0 -16px 8px -16px">
+            <button class="aero-button aero-black aero-section" type="submit">Calculate</button></div></form>
+    {% if cop %}
+<div class="aero-row-padding" style="margin:0 -16px 8px -16px"><p>The position of Center of Pressure from the leading edge is {{cop}}</p></div>
+</div><a href="/centerpressurefromle.html">
+    <button class="aero-button aero-black aero-section">Calculate Again</button></a></div>
+{% endif %}
+{% endblock content %}

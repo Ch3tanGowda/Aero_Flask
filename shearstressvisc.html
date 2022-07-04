@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="aero-col m6" style = "max-width:800px"></div>
+    <form action="/shearstressvisc.html" method="POST">
+        <div class="aero-row-padding" style="margin:0 -16px 18px -16px">
+            <input class="aero-input aero-border" type="text" placeholder="Viscosity Coefficient" name="viscosity_coeff" required><br>Viscosity Coefficient (Pa)</div>
+        
+        <div class="aero-row-padding" style="margin:0 -16px 18px -16px">
+            <input class="aero-input aero-border" type="text" placeholder="Velocity Profile" name="velocity_profile" required><br>Velocity Profile as a function of y<br>How to give the function as the input<br> y^2 should be written as y**2 <br>2y should be written as 2*y<br></div>
+        
+        <div class="aero-row-padding" style="margin:0 -16px 18px -16px">
+            <input class="aero-input aero-border" type="text" placeholder="Y position" name="y_calculated" required><br>Point on which viscosity must be calculated (m)</div>
+        
+        <div class="aero-row-padding" style="margin:0 -16px 8px -16px">
+            <button class="aero-button aero-black aero-section aero-right" type="submit">Calculate</button></div>
+        
+    </form>
+
+</div>
+{% if shearstress %}
+<p>Your Shear Stress is {{shearstress}} </p>
+{% endif %}
+
+<div class="aero-row-padding aero-col m6" style="margin:10 -16px 8px -16px"><a href="/shearstressvisc">
+    <button class="aero-button aero-black aero-section aero-right">Calculate Again</button></a></div>
+<br>
+
+{% endblock content %}

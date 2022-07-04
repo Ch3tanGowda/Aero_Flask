@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="aero-col m6" style = "max-width:800px"></div>
+    <form action="/liftcoefficient.html" method="POST">
+        <div class="aero-row-padding" style="margin:0 -16px 18px -16px">
+            <input class="aero-input aero-border" type="text" placeholder="Lift Force" name="liftforce" required><br>Lift Force (kg m/s^2)</div>
+        
+        <div class="aero-row-padding" style="margin:0 -16px 18px -16px">
+            <input class="aero-input aero-border" type="text" placeholder="Dynamic Pressure" name="dynamicpressure" required><br>Dynamic Pressure (kg/m s^2)</div>
+        
+        <div class="aero-row-padding" style="margin:0 -16px 18px -16px">
+            <input class="aero-input aero-border" type="text" placeholder="Surface Area" name="surfacearea" required><br>Surface Area (m^2)</div>
+        
+        
+        <div class="aero-row-padding" style="margin:0 -16px 8px -16px">
+            <button class="aero-button aero-black aero-section aero-right" type="submit">Calculate</button></div>
+        
+    </form>
+    
+
+</div>
+<div class="aero-row-padding aero-col m6" style="margin:10 -16px 8px -16px"><a href="/liftcoefficient.html">
+    <button class="aero-button aero-black aero-section aero-right">Calculate Again</button></a></div>
+
+    {% if liftcoefficientvalue %}
+    <p>Your lift Coefficient is {{liftcoefficientvalue}} </p>
+    {% endif %}
+
+    <div class="aero-row-padding aero-col m6" style="margin:10 -16px 8px -16px"><a href="/dynamicpressure.html"><br>Click here to calculate Dynamic Pressure<br><br></a></div>
+
+{% endblock content %}
+

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<title>AeroTools</title>
+<link rel="icon" href="./Resources/logo.png" type="image/icon type">
+<!--<link rel="stylesheet" href="./Attributes/styles.css"> -->
+<head>
+    <script src="https://cdn.plot.ly/plotly-2.0.0-rc.2.min.js"></script>
+</head>
+
+<style>
+  .aero-container,.aero-panel{padding:0.01em 16px}
+  .aero-content,.aero-auto{margin-left:auto;margin-right:auto}
+  .aero-content{max-width:980px}
+  .aero-padding-32{padding-top:32px!important;padding-bottom:32px!important}
+  .aero-padding-64{padding-top:64px!important;padding-bottom:64px!important}
+  .aero-wide{letter-spacing:4px}
+  .aero-center{text-align:center!important}
+  .aero-container:after,.aero-container:before,.aero-panel:after,.aero-panel:before,.aero-row:after,.aero-row:before,.aero-row-padding:after,.aero-row-padding:before,
+  .aero-cell-row:before,.aero-cell-row:after,.aero-clear:after,.aero-clear:before,.aero-bar:before,.aero-bar:after{content:"";display:table;clear:both}
+  .aero-opacity,.aero-hover-opacity:hover{opacity:0.80}
+  .aero-row-padding,.aero-row-padding>.aero-half,.aero-row-padding>.aero-third,.aero-row-padding>.aero-twothird,.aero-row-padding>.aero-threequarter,.aero-row-padding>.aero-quarter,.aero-row-padding>.aero-col{padding:0 8px}
+  .aero-col,.aero-half,.aero-third,.aero-twothird,.aero-threequarter,.aero-quarter{float:left;width:100%}
+  .aero-large{font-size:18px!important}
+  .aero-col.m6,.aero-half{width:49.99999%}
+  .aero-margin-bottom{margin-bottom:16px!important}
+  .aero-white{background-color: white; border-style: solid;}
+body {font-family: "ft";
+
+  background-image: url('{{url_for('static', filename ='b2.png')}}');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100%;
+}
+.mySlides {display: none}
+
+</style>
+<body>
+  <div class="aero-container aero-content aero-padding-32 aero-white" style ="margin:10px 16px 18px 16px; max-width:500px">
+    <h2><span style= "border-bottom: 6px solid  #CC3838 ;font-family: ft; ">Calculator</span></h2>
+      <p>Enter the required values and press calculate </p>
+        <div style="margin:40px 16px 18px 16px">
+          <div class="aero-col m6" style = "max-width:800px"></div>
+  
+    <form action="/curl2d.html" method="POST" enctype="multipart/form-data">
+        <div class="aero-row-padding" style="margin:0 -16px 18px -16px">
+          <input class="aero-input aero-border" type="text" placeholder="Number of points in X direction" name="xlen" required><br>Number of points in X direction</div>
+        
+        
+        <div class="aero-row-padding" style="margin:0 -16px 18px -16px">
+          <input class="aero-input aero-border" type="text" placeholder="Number of points in Y direction" name="ylen" required><br>Number of points in Y direction</div>
+
+          <div class="aero-row-padding" style="margin:0 -16px 18px -16px">
+            <input class="aero-input aero-border" type="file" placeholder="File" name="file" required><br>File</div>
+  
+          <div class="aero-row-padding" style="margin:0 -16px 8px -16px">
+            <button class="aero-button aero-black aero-section aero-right" type="submit">Calculate</button></div>
+        
+    </form>
+
+
+        </div>
+        <div class="aero-row-padding" style="margin:10px 8px -16px"><a href="/">
+          <button class="aero-button aero-black aero-section aero-right">Home</button></a></div>
+
+  </div>
+
+
+<div class="aero-row-padding" style="margin:0 -16px 8px -16px"><p>The Total Curl is {{curl}}</p></div>
+</div><a href="/curl2d.html">
+    <button class="aero-button aero-black aero-section">Calculate Again</button></a></div>
+
+<h2><span style= "border-bottom: 6px solid  #CC3838 ;font-family: ft; ">Velocity Plot</span></h2>
+<div id="myDiv" style="width:800px;height:800x;"></div>
+
+<div class="aero-container aero-content aero-padding-32 aero-white" style ="margin:10px 16px 18px 16px; max-width:700px">
+  <img alt="" src="data:image/png;base64,{{img}}" /></div>
+</body>
+
+</html>
